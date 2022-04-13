@@ -1,20 +1,20 @@
+<!DOCTYPE html>
 <html>
- <head>
-  <title>HTML</title>
-  <style type="text/css">
-  </style>
- </head>
- <body>
-    <div id="times">
-    </div>
-   <script type="text/javascript">
-     function  getD1(){
-         var date=new Date();
-         var d1=date.toLocaleString();
-         var div1=document.getElementById("times");
-         div1.innerHTML =d1;
-     }
-     setInterval("getD1();",1000);
-    </script>
- </body>
+ <script> 
+function show(){ 
+var date = new Date(); //日期对象 
+var now = ""; 
+now = date.getFullYear()+"/"; //读英文就行了 
+now = now + (date.getMonth()+1)+"/"; //取月的时候取的是当前月-1如果想取当前月+1就可以了 
+now = now + date.getDate()+"&nbsp"; 
+now = now + date.getHours()+":"; 
+now = now + date.getMinutes()+":"; 
+now = now + date.getSeconds(); 
+document.getElementById("nowDiv").innerHTML = now; //div的html是now这个字符串 
+setTimeout("show()",1000); //设置过1000毫秒就是1秒，调用show方法 
+} 
+</script> 
+<body onload="show()"> <!-- 网页加载时调用一次 以后就自动调用了--> 
+<div id="nowDiv"></div> 
+</body>
 </html>
